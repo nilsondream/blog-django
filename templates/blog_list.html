@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="py-28 px-80 bg-gray-200 h-full">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl font-black">Posts Recientes</h1>
+            <a class="bg-black text-white py-3 px-12 font-bold rounded-lg cursor-pointer hover:bg-indigo-600 transition duration-200" href={% url 'blog:create' %}>Crear Post</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            {% for post in posts %}
+                <div class="flex justify-between items-center px-8 py-5 bg-white rounded-lg">
+                    <a class="font-semibold" href={% url 'blog:detail' post.id %}>{{post.title}}</a>
+                    <div class="flex gap-2 items-center">
+                        <a class="bg-transparent text-indigo-600 border-2 border-indigo-600 py-1 px-3 font-semibold rounded-md cursor-pointer hover:text-white hover:bg-indigo-600 transition duration-200" href={% url 'blog:update' post.id %}>Editar</a>
+                        <a class="bg-transparent text-red-500 border-2 border-red-500 py-1 px-3 font-semibold rounded-md cursor-pointer hover:text-white hover:bg-red-500 transition duration-200" href={% url 'blog:delete' post.id %}>Borrar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

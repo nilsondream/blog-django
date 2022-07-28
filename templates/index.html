@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+   <div class="min-h-screen flex justify-center items-center bg-gray-200">
+        <div class="flex flex-col items-center gap-10 bg-white p-12 rounded-2xl shadow-xl">
+            <h1 class="text-center text-3xl font-black w-80">Bienvenido al primer blog de Nilson echo con Django y Tailwind</h1>
+            <a class="bg-black text-white py-4 px-12 font-bold rounded-lg cursor-pointer hover:bg-indigo-600 transition duration-200" href={% url 'blog:home' %}>Continuar</a>
+        </div>
+   </div> 
+{% endblock content %}
